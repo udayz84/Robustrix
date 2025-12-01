@@ -1,0 +1,43 @@
+:root {
+  /* Project-wide dark theme palette (as requested) */
+  --color-brand-primary: #02C4F9;      /* primary / button */
+  --color-brand-primary-dark: #0099C4; /* darker primary for hovers/accents */
+  --color-brand-accent: #15E3FF;       /* accent blue */
+  --color-highlight-cyan: #29D5FF;     /* highlight */
+  --color-contact-purple: #8A3FFC;
+
+  /* Ink (text) colors tuned for dark background */
+  --color-ink-900: #FFFFFF;            /* primary text */
+  --color-ink-700: #B5BABB;            /* secondary text */
+  --color-ink-500: #9BA2A3;
+  --color-ink-300: #7E888A;
+  --color-ink-200: #3D4B50;            /* subtle borders on dark */
+  --color-ink-100: #233238;            /* very subtle borders */
+
+  /* Backgrounds */
+  --color-bg: #022C36;                 /* page background */
+  --color-bg-alt: #031F27;             /* card/section surface */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+
+  --container-max: 1200px;
+  --container-pad: 20px;
+
+  --transition-fast: 160ms cubic-bezier(.2,.8,.2,1);
+  --transition: 280ms cubic-bezier(.2,.8,.2,1);
+  --transition-slow: 500ms cubic-bezier(.2,.8,.2,1);
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1280px;
+  }
+}
+
+
