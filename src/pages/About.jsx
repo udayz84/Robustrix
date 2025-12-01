@@ -209,7 +209,7 @@ export default function About() {
         }
         .about-hero {
           background:
-            linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.0)),
+            linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
             url('https://source.unsplash.com/1600x600/?industrial,robotics,factory') center/cover no-repeat;
           color: #fff;
         }
@@ -217,6 +217,8 @@ export default function About() {
         .ai-title { font-size: clamp(28px, 5vw, 42px); font-weight: 900; line-height: 1.1; }
         .ai-kicker { color: var(--color-brand-primary); margin-top: 8px; }
         .ai-sub { margin-top: 10px; color: var(--color-ink-600, #3d4656); max-width: 920px; }
+        /* Ensure the About hero text stays white, overriding later generic rules */
+        .about-hero .ai-title, .about-hero .ai-kicker, .about-hero .ai-sub { color: #fff !important; }
         .about-grid {
           display: grid; gap: 16px;
           grid-template-columns: repeat(2, 1fr);
