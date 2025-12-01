@@ -4,13 +4,11 @@ export default function Footer() {
       <div className="container grid">
         <div className="col">
           <a className="brand" href="/">
-            <img src="/assets/logo-mark.svg" width="32" height="32" alt="" />
-            <span>Robustrix</span>
+            <img src="/pictures/icon.png" width="28" height="28" alt="" />
           </a>
           <p className="copy">
             Industrial computing solutions for edge AI, embedded, and IoT applications.
           </p>
-          <img className="footer-hero" src="/pictures/home.png" alt="Robustrix footer visual" />
         </div>
         <nav className="col">
           <p className="col-title">Products</p>
@@ -89,14 +87,6 @@ export default function Footer() {
         .links { display: flex; gap: 14px; }
         .links a { color: var(--color-ink-700); text-decoration: none; }
         .links a:hover { color: var(--color-brand-primary-dark); }
-        .footer-hero {
-          margin-top: 10px;
-          width: 140px;
-          height: auto;
-          border-radius: 10px;
-          box-shadow: var(--shadow-sm);
-          background: var(--color-bg-alt);
-        }
         @media (max-width: 1023px) {
           .grid { grid-template-columns: 1fr 1fr; }
           .legal { flex-direction: column; align-items: start; }

@@ -31,11 +31,9 @@ export default function Header() {
             <Link className="nav-link" to="/products">Products</Link>
           </div>
           <div className="nav-item">
-            <Link className="nav-link" to="/solutions">Solutions</Link>
+            <Link className="nav-link" to="/solutions">AI Platforms</Link>
           </div>
-          <div className="nav-item">
-            <Link className="nav-link" to="/ai-solutions">AI Solutions</Link>
-          </div>
+          
           <div className="nav-item">
             <button className="nav-link">Support</button>
           </div>
@@ -62,8 +60,8 @@ export default function Header() {
         <nav className="mobile-nav">
           <Link to="/" className="mobile-link">Home</Link>
           <Link to="/products" className="mobile-link">Products</Link>
-          <Link to="/solutions" className="mobile-link">Solutions</Link>
-          <Link to="/ai-solutions" className="mobile-link">AI Solutions</Link>
+          <Link to="/solutions" className="mobile-link">AI Platforms</Link>
+          
           <a href="#" className="mobile-link">Support</a>
           <Link to="/about" className="mobile-link">About</Link>
           <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="mobile-link accent">Contact Sales</a>

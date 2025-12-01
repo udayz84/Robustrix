@@ -17,12 +17,7 @@ export default function About() {
     setTimeout(() => setSubmitted(false), 4000);
     setForm({ name: '', phone: '', email: '', message: '' });
   }
-  function imgFallback(e) {
-    e.currentTarget.src = '/pictures/aiplatforms.jpg';
-  }
-  const gallery = Array.from({ length: 12 }).map((_, i) =>
-    `https://source.unsplash.com/800x600/?industrial,ai,robotics,factory,automation&sig=${i + 1}`
-  );
+  
   return (
     <main>
       <section className="ai-hero about-hero">
@@ -52,44 +47,29 @@ export default function About() {
         <h3 className="h2">What Makes Us Different?</h3>
         <div className="about-grid">
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?industrial,ai,computer,edge" alt="AI-Driven Industrial Computing" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>AI-Driven Industrial Computing</h4>
             <p>We design and manufacture AI-ready, fanless embedded PCs that power a wide range of industrial applications, including machine vision, smart automation, and autonomous robotics.</p>
           </article>
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?fanless,heatsink,embedded,pc" alt="Silent, Fanless, and Maintenance-Free" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>Silent, Fanless, and Maintenance-Free</h4>
             <p>By eliminating fans and moving parts, we deliver ultra-durable, noiseless computing solutions that require minimal maintenance while delivering maximum efficiency.</p>
           </article>
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?factory,dust,heat,industrial" alt="Built for the Harshest Conditions" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>Built for the Harshest Conditions</h4>
             <p>Our fanless industrial PCs are engineered to function flawlessly in dusty, high-temperature, and vibration-heavy environments, ensuring maximum reliability in extreme conditions.</p>
           </article>
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?green,energy,efficiency,industrial" alt="Energy-Efficient & Sustainable" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>Energy-Efficient & Sustainable</h4>
             <p>We believe in sustainable innovation. Our low-power AI computing solutions help industries reduce energy consumption and move towards a greener future.</p>
           </article>
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?industry4,automation,robotics" alt="Industry 4.0-Ready Solutions" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>Industry 4.0-Ready Solutions</h4>
             <p>We help businesses adopt smart automation, predictive maintenance, and real-time analytics to optimize performance and reduce downtime.</p>
           </article>
           <article className="about-card">
-            <img src="https://source.unsplash.com/800x450/?india,manufacturing,technology" alt="Committed to Make in India" onError={imgFallback} loading="lazy" decoding="async" />
             <h4>Committed to 'Make in India'</h4>
             <p>We are setting up local assembly hubs and collaborating with Indian engineers to drive domestic manufacturing and strengthen India's technological independence.</p>
           </article>
-        </div>
-      </section>
-
-      <section className="container section-spacing">
-        <h3 className="h2">Industrial AI in Pictures</h3>
-        <div className="gallery">
-          {gallery.map((src, i) => (
-            <img key={i} src={src} alt="Industrial AI" loading="lazy" decoding="async" onError={imgFallback} />
-          ))}
         </div>
       </section>
 
@@ -227,14 +207,13 @@ export default function About() {
           .about-grid { grid-template-columns: repeat(3, 1fr); }
         }
         .about-card {
-          background: #fff; border-radius: 12px; box-shadow: var(--shadow-sm);
-          padding: 14px; display: grid; gap: 8px;
+          background: var(--color-bg-alt); border-radius: 12px; box-shadow: var(--shadow-sm);
+          padding: 14px; display: grid; gap: 8px; color: var(--color-ink-900);
         }
-        .about-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
         .impact-grid { display: grid; gap: 16px; grid-template-columns: repeat(1, 1fr); }
         @media (min-width: 1024px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
         .list { margin-top: 10px; display: grid; gap: 6px; }
-        .ai-cta { background: linear-gradient(90deg, #f5f8ff, #ffffff); border-top: 1px solid var(--color-ink-100); border-bottom: 1px solid var(--color-ink-100); padding-block: 24px; }
+        .ai-cta { background: linear-gradient(90deg, var(--color-bg-alt), var(--color-bg)); border-top: 1px solid var(--color-ink-200); border-bottom: 1px solid var(--color-ink-200); padding-block: 24px; }
         .contact { display: grid; gap: 12px; max-width: 640px; }
         .row { display: grid; gap: 6px; }
         input, textarea {
@@ -246,21 +225,13 @@ export default function About() {
         .contact-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
         @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.6fr; } }
         .contact-card {
-          background: #fff; border-radius: 12px; box-shadow: var(--shadow-sm);
-          padding: 16px; display: grid; gap: 8px;
+          background: var(--color-bg-alt); border-radius: 12px; box-shadow: var(--shadow-sm);
+          padding: 16px; display: grid; gap: 8px; color: var(--color-ink-900);
         }
         .map-wrap iframe {
           width: 100%; height: 360px; border: 0; border-radius: 12px; box-shadow: var(--shadow-sm);
         }
-        .gallery {
-          display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr);
-        }
-        @media (min-width: 1024px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
-        .gallery img {
-          width: 100%; height: 180px; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow-sm);
-          transition: transform var(--transition);
-        }
-        .gallery img:hover { transform: scale(1.02); }
+        
       `}</style>
     </main>
   );
