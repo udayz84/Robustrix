@@ -67,7 +67,6 @@ export default function News() {
             <p className="date">{n.date}{n.meta ? ` · ${n.meta}` : ''}</p>
             <h3 className="title">{n.title}</h3>
             {n.excerpt && <p className="excerpt">{n.excerpt}</p>}
-            <span className="link">Read More...</span>
           </div>
         </a>
       ))}

@@ -28,6 +28,136 @@ export default function Home() {
 
         <MainProducts />
 
+        <section className="container section-spacing robot-promo-section">
+          <div className="robot-promo-banner">
+            <div className="robot-promo-content">
+              <h2 className="robot-promo-title">
+                Robustrix IT Solutions - Leading the Future of<br />
+                <span className="robot-promo-highlight">Industrial Innovation in India</span>
+              </h2>
+              <p className="robot-promo-description">
+                Welcome to Robustrix IT Solutions, where cutting-edge technology meets industrial resilience. We are not just building machines—we are engineering the future of AI-driven industrial computing. Our expertise lies in fanless AI industrial embedded PCs designed to operate seamlessly in India's toughest environments, ensuring unmatched durability and performance.
+              </p>
+              <div className="robot-promo-features">
+                <h3 className="robot-promo-subtitle">Futuristic Humanoid Robot</h3>
+                <p className="robot-promo-subtitle-note">Coming Soon</p>
+                <ul className="robot-features-list">
+                  <li>Advanced humanoid design with sophisticated AI processing capabilities</li>
+                  <li>Intelligent perception systems for real-time environment understanding</li>
+                  <li>Precision movement control with multi-joint articulation</li>
+                  <li>Natural human-robot interaction through advanced communication interfaces</li>
+                  <li>Modular architecture supporting customizable applications</li>
+                  <li>Industrial-grade durability for demanding operational environments</li>
+                  <li>Edge AI computing for autonomous decision-making</li>
+                  <li>Seamless integration with existing industrial automation systems</li>
+                </ul>
+              </div>
+              <a href="#contact" className="btn btn-primary robot-contact-btn">Contact us</a>
+            </div>
+            <div className="robot-promo-visual">
+              <img src="/pictures/robot.png" alt="Futuristic Humanoid Robot" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <style>{`
+            .robot-promo-section {
+              margin-top: 64px;
+              margin-bottom: 64px;
+            }
+            .robot-promo-banner {
+              display: grid;
+              gap: 32px;
+              grid-template-columns: 1fr;
+              align-items: center;
+              background: var(--home-section-dark);
+              padding: 32px;
+              border-radius: 16px;
+              box-shadow: 0 10px 30px rgba(0,0,0,.35);
+              border: 1px solid rgba(255,255,255,0.08);
+            }
+            @media (min-width: 1024px) {
+              .robot-promo-banner {
+                grid-template-columns: 1.2fr 0.8fr;
+                padding: 48px;
+              }
+            }
+            .robot-promo-content {
+              display: grid;
+              gap: 20px;
+            }
+            .robot-promo-title {
+              font-size: clamp(28px, 4vw, 42px);
+              font-weight: 900;
+              line-height: 1.2;
+              color: var(--home-text-white);
+              margin: 0;
+            }
+            .robot-promo-highlight {
+              color: var(--home-accent-blue);
+              display: block;
+              margin-top: 8px;
+            }
+            .robot-promo-description {
+              font-size: clamp(14px, 1.8vw, 16px);
+              line-height: 1.6;
+              color: var(--home-text-gray);
+              margin: 0;
+            }
+            .robot-promo-features {
+              margin-top: 8px;
+            }
+            .robot-promo-subtitle {
+              font-size: clamp(20px, 2.5vw, 24px);
+              font-weight: 800;
+              color: var(--home-text-white);
+              margin: 0 0 4px 0;
+            }
+            .robot-promo-subtitle-note {
+              font-size: clamp(16px, 2vw, 18px);
+              font-weight: 700;
+              color: var(--home-accent-blue);
+              margin: 0 0 16px 0;
+            }
+            .robot-features-list {
+              display: grid;
+              gap: 10px;
+              list-style: none;
+              padding: 0;
+              margin: 0;
+            }
+            .robot-features-list li {
+              font-size: clamp(13px, 1.6vw, 15px);
+              line-height: 1.5;
+              color: var(--home-text-gray);
+              padding-left: 20px;
+              position: relative;
+            }
+            .robot-features-list li::before {
+              content: "•";
+              color: var(--home-accent-blue);
+              font-weight: 900;
+              position: absolute;
+              left: 0;
+            }
+            .robot-contact-btn {
+              margin-top: 8px;
+              width: fit-content;
+            }
+            .robot-promo-visual {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .robot-promo-visual img {
+              width: 100%;
+              height: auto;
+              max-width: 500px;
+              border-radius: 12px;
+              box-shadow: 0 10px 30px rgba(0,0,0,.4);
+            }
+          `}</style>
+        </section>
+
         <section className="container section-spacing">
           <div className="about-top">
             <div className="about-copy">
@@ -81,7 +211,6 @@ export default function Home() {
                   <li>High-speed image processing for real-time analysis.</li>
                   <li>Integration with smart cameras for automation.</li>
                 </ul>
-                <a className="link" href="#">Learn More</a>
               </article>
               <article className="card app-card">
                 <h4>Autonomous Robotics</h4>
@@ -91,7 +220,6 @@ export default function Home() {
                   <li>AI-powered drones for logistics and inspection.</li>
                   <li>Robotic arms for handling and assembly.</li>
                 </ul>
-                <a className="link" href="#">Learn More</a>
               </article>
               <article className="card app-card">
                 <h4>Smart Infrastructure</h4>
@@ -101,7 +229,6 @@ export default function Home() {
                   <li>Intelligent solar farm management.</li>
                   <li>AI-driven HVAC and smart grid solutions.</li>
                 </ul>
-                <a className="link" href="#">Learn More</a>
               </article>
               <article className="card app-card">
                 <h4>Healthcare 4.0</h4>
@@ -111,7 +238,6 @@ export default function Home() {
                   <li>Automated drug dispensing systems.</li>
                   <li>AI-based patient monitoring.</li>
                 </ul>
-                <a className="link" href="#">Learn More</a>
               </article>
             </div>
           </div>
@@ -172,7 +298,7 @@ export default function Home() {
           <News />
         </section>
 
-        <section className="container section-spacing">
+        <section id="contact" className="container section-spacing">
           <SectionHeading
             overline="Contact"
             title="Let's Connect"

@@ -85,7 +85,9 @@ export default function MainProducts() {
       <div className="mp-grid">
         {(products || fallback).map((p) => (
           <article key={p.id} className="card mp-card">
-            <span className="mp-badge">Main</span>
+            <span className={`mp-badge ${p.comingSoon ? 'mp-badge-coming-soon' : ''}`}>
+              {p.comingSoon ? 'Coming Soon' : 'Main'}
+            </span>
             {p.image ? (
               <div className="mp-media">
                 <img src={p.image} alt={p.name} loading="lazy" decoding="async" />
@@ -103,7 +105,11 @@ export default function MainProducts() {
                 <li key={i}>{h}</li>
               ))}
             </ul>
-            {p.models?.length ? (
+            {p.comingSoon ? (
+              <div className="mp-actions">
+                <span className="btn btn-outline mp-coming-soon-btn">Coming Soon</span>
+              </div>
+            ) : p.models?.length ? (
               <div className="mp-actions">
                 <Link to={`/products?product=${p.id}`} className="btn btn-outline">Models & options</Link>
               </div>
@@ -148,6 +154,14 @@ export default function MainProducts() {
           font-size: 0.72rem;
           font-weight: 800;
           letter-spacing: .05em;
+        }
+        .mp-badge-coming-soon {
+          background: var(--home-accent-blue, #15E3FF);
+          color: var(--home-bg-dark, #022C36);
+        }
+        .mp-coming-soon-btn {
+          cursor: default;
+          opacity: 0.8;
         }
         .mp-head { display: grid; gap: 4px; }
         .mp-title { font-weight: 900; font-size: 1.05rem; }
