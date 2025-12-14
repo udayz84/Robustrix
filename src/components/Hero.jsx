@@ -8,7 +8,7 @@ const SLIDES = [
     subtitle: 'Powering vision, inference, and analytics at the edge',
     ctaPrimary: 'Explore AI Platforms',
     ctaSecondary: 'View All Products',
-    image: '/pictures/aiplatforms.jpg',
+    image: '/pictures/roboi.jpeg',
     variant: 'full'
   },
   /* s2 removed on request */
@@ -18,7 +18,7 @@ const SLIDES = [
     subtitle: 'Performance and reliability for modern industrial computing',
     ctaPrimary: 'Explore Intel',
     ctaSecondary: 'View Specs',
-    image: '/pictures/intelprocrssros.png',
+    image: '/pictures/INTEL.png',
     variant: 'full'
   },
   {
@@ -27,7 +27,7 @@ const SLIDES = [
     subtitle: 'Silent, rugged, and thermally-optimized for harsh environments',
     ctaPrimary: 'Explore Fanless',
     ctaSecondary: 'Contact Sales',
-    image: '/pictures/fanlesscpu.png',
+    image: '/pictures/cpu.png',
     variant: 'full'
   }
 ];
@@ -101,13 +101,16 @@ export default function Hero() {
                 <div className="bg-full" style={{ backgroundImage: `url(${s.image})`, backgroundPosition: 'center 70%' }} />
                 <div className="overlay-full" />
                 <div className="container slide-inner full-inner">
-                  <div className="copy glass">
-                    <p className="overline">Innovation</p>
+                  <div className="copy">
                     <h2 className="h2">{s.title}</h2>
                     <p className="subtle">{s.subtitle}</p>
                     <div className="cta-row">
                       <Link to="/products" className="btn btn-primary">{s.ctaPrimary}</Link>
-                      <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                      {s.ctaSecondary.includes('Contact') ? (
+                        <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{s.ctaSecondary}</a>
+                      ) : (
+                        <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -115,12 +118,15 @@ export default function Hero() {
             ) : (
               <div className="container slide-inner">
                 <div className="copy">
-                  <p className="overline">Innovation</p>
                   <h2 className="h2">{s.title}</h2>
                   <p className="subtle">{s.subtitle}</p>
                   <div className="cta-row">
                     <Link to="/products" className="btn btn-primary">{s.ctaPrimary}</Link>
-                    <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                    {s.ctaSecondary.includes('Contact') ? (
+                      <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{s.ctaSecondary}</a>
+                    ) : (
+                      <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                    )}
                   </div>
                 </div>
                 <div className="visual">
@@ -203,7 +209,7 @@ export default function Hero() {
         .overlay-full {
           position: absolute;
           inset: 0;
-          background: transparent;
+          background: rgba(0, 0, 0, 0.3);
         }
         .full-inner {
           position: relative;
@@ -214,20 +220,22 @@ export default function Hero() {
           padding-top: 24px;
           padding-bottom: clamp(70px, 12vw, 160px);
         }
-        .glass {
+        .copy {
           max-width: min(720px, 92vw);
-          background: rgba(0,0,0,0.38);
-          border: 1px solid rgba(255,255,255,0.28);
-          border-radius: var(--radius-lg);
-          box-shadow: 0 20px 60px rgba(10, 10, 10, 0.28);
-          padding: clamp(16px, 3vw, 28px);
           color: #ffffff;
-          backdrop-filter: blur(10px) saturate(140%);
-          text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+          text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
-        .glass .overline { color: #ffffff; }
-        .glass .h2 { color: #ffffff; font-size: clamp(34px, 5.6vw, 64px); line-height: 1.1; }
-        .glass .subtle { color: #ffffff; font-size: clamp(16px, 2.8vw, 22px); }
+        .copy .h2 { 
+          color: #ffffff; 
+          font-size: clamp(34px, 5.6vw, 64px); 
+          line-height: 1.1; 
+          font-weight: 800;
+        }
+        .copy .subtle { 
+          color: #ffffff; 
+          font-size: clamp(16px, 2.8vw, 22px); 
+          margin-top: 12px;
+        }
         .slide-inner {
           display: grid;
           grid-template-columns: 1.1fr 0.9fr;
