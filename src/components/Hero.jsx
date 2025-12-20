@@ -29,6 +29,24 @@ const SLIDES = [
     ctaSecondary: 'Contact Sales',
     image: '/pictures/cpu.png',
     variant: 'full'
+  },
+  {
+    id: 's5',
+    title: 'Humanoid Robo Dog',
+    subtitle: 'Next-generation AI-powered robotic companion with autonomous intelligence',
+    ctaSecondary: 'Coming Soon',
+    image: '/products/robodog.jpeg',
+    variant: 'full',
+    bgPosition: 'center center'
+  },
+  {
+    id: 's6',
+    title: 'Humanoid Robot',
+    subtitle: 'Advanced humanoid robotics with cutting-edge AI and machine learning capabilities',
+    ctaSecondary: 'Coming Soon',
+    image: '/pictures/robot.jpeg',
+    variant: 'full',
+    bgPosition: 'center center'
   }
 ];
 
@@ -95,21 +113,25 @@ export default function Hero() {
         aria-label="Featured"
       >
         {SLIDES.map((s, i) => (
-          <article className={`slide ${s.variant === 'full' ? 'full-bleed' : ''}`} key={s.id} aria-hidden={i !== index}>
+          <article className={`slide ${s.variant === 'full' ? 'full-bleed' : ''}`} key={s.id} data-slide-id={s.id} aria-hidden={i !== index}>
             {s.variant === 'full' ? (
               <>
-                <div className="bg-full" style={{ backgroundImage: `url(${s.image})`, backgroundPosition: 'center 70%' }} />
+                <div className="bg-full" style={{ backgroundImage: `url(${s.image})`, backgroundPosition: s.bgPosition || 'center 70%' }} />
                 <div className="overlay-full" />
                 <div className="container slide-inner full-inner">
                   <div className="copy">
                     <h2 className="h2">{s.title}</h2>
                     <p className="subtle">{s.subtitle}</p>
                     <div className="cta-row">
-                      <Link to="/products" className="btn btn-primary">{s.ctaPrimary}</Link>
-                      {s.ctaSecondary.includes('Contact') ? (
-                        <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{s.ctaSecondary}</a>
-                      ) : (
-                        <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                      {s.ctaPrimary && (
+                        <Link to="/products" className="btn btn-primary">{s.ctaPrimary}</Link>
+                      )}
+                      {s.ctaSecondary && (
+                        s.ctaSecondary.includes('Contact') ? (
+                          <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="btn btn-outline">{s.ctaSecondary}</a>
+                        ) : (
+                          <Link to="/products" className="btn btn-outline">{s.ctaSecondary}</Link>
+                        )
                       )}
                     </div>
                   </div>
@@ -204,6 +226,11 @@ export default function Hero() {
           background-size: cover;
           background-position: center center;
           transform: none;
+        }
+        .slide[data-slide-id="s5"] .bg-full,
+        .slide[data-slide-id="s6"] .bg-full {
+          background-position: center center;
+          background-size: cover;
         }
         .slide[aria-hidden="false"].full-bleed .bg-full { transform: none; }
         .overlay-full {
