@@ -32,7 +32,7 @@ const SLIDES = [
   },
   {
     id: 's5',
-    title: 'Humanoid Robo Dog',
+    title: 'AI Robo Dog',
     subtitle: 'Next-generation AI-powered robotic companion with autonomous intelligence',
     ctaSecondary: 'Coming Soon',
     image: '/products/robodog.jpeg',
@@ -41,8 +41,8 @@ const SLIDES = [
   },
   {
     id: 's6',
-    title: 'Humanoid Robot',
-    subtitle: 'Advanced humanoid robotics with cutting-edge AI and machine learning capabilities',
+    title: 'AI Robot',
+    
     ctaSecondary: 'Coming Soon',
     image: '/pictures/robot.jpeg',
     variant: 'full',
