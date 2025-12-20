@@ -173,6 +173,140 @@ export default function Home() {
         </section>
 
         <section className="container section-spacing">
+          <div className="coming-soon-section">
+            <div className="coming-soon-content">
+              <p className="overline">Coming Soon</p>
+              <h2 className="h2">Robotic AI Dog</h2>
+              <p className="subtle">
+                Experience the future of autonomous robotics with our revolutionary AI-powered robotic dog. 
+                Designed with cutting-edge artificial intelligence and precision engineering, this advanced 
+                companion brings together the power of machine learning, computer vision, and autonomous navigation 
+                to deliver unprecedented capabilities.
+              </p>
+              <div className="coming-soon-features">
+                <div className="feature-item">
+                  <h4>🤖 Advanced AI Intelligence</h4>
+                  <p>Powered by next-generation AI algorithms for intelligent decision-making and adaptive behavior.</p>
+                </div>
+                <div className="feature-item">
+                  <h4>👁️ Computer Vision</h4>
+                  <p>State-of-the-art vision systems for object recognition, navigation, and real-time environment mapping.</p>
+                </div>
+                <div className="feature-item">
+                  <h4>🚀 Autonomous Navigation</h4>
+                  <p>Self-navigating capabilities with obstacle avoidance and path planning for seamless operation.</p>
+                </div>
+                <div className="feature-item">
+                  <h4>🔋 Long-lasting Performance</h4>
+                  <p>Optimized power management for extended operational hours with efficient battery technology.</p>
+                </div>
+              </div>
+              <p className="coming-soon-note">
+                Stay tuned for the official launch of our Robotic AI Dog. Be among the first to experience 
+                the next generation of intelligent robotics solutions.
+              </p>
+            </div>
+            <div className="coming-soon-visual">
+              <img 
+                src="/products/robodog.jpeg" 
+                alt="Robotic AI Dog - Coming Soon" 
+                loading="lazy" 
+                decoding="async"
+              />
+              <div className="coming-soon-badge">Coming Soon</div>
+            </div>
+          </div>
+          <style>{`
+            .coming-soon-section {
+              display: grid;
+              gap: 32px;
+              grid-template-columns: 1fr;
+              align-items: center;
+              margin-bottom: 48px;
+              background: var(--home-section-dark);
+              padding: 32px;
+              border-radius: 16px;
+              box-shadow: 0 10px 40px rgba(0,0,0,.3);
+              border: 1px solid rgba(2, 196, 249, 0.1);
+            }
+            @media (min-width: 1024px) {
+              .coming-soon-section {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+                padding: 48px;
+              }
+            }
+            .coming-soon-content {
+              display: grid;
+              gap: 16px;
+            }
+            .coming-soon-features {
+              display: grid;
+              gap: 16px;
+              margin-top: 24px;
+            }
+            .feature-item {
+              padding: 16px;
+              background: rgba(2, 196, 249, 0.05);
+              border-radius: 8px;
+              border-left: 3px solid var(--home-accent-blue);
+            }
+            .feature-item h4 {
+              font-size: 18px;
+              font-weight: 700;
+              color: var(--home-accent-blue);
+              margin-bottom: 8px;
+              font-family: 'Orbitron', ui-sans-serif, system-ui;
+            }
+            .feature-item p {
+              color: var(--home-text-gray);
+              font-size: 14px;
+              line-height: 1.6;
+            }
+            .coming-soon-note {
+              margin-top: 24px;
+              padding: 16px;
+              background: rgba(2, 196, 249, 0.1);
+              border-radius: 8px;
+              color: var(--home-text-white);
+              font-style: italic;
+              border: 1px solid rgba(2, 196, 249, 0.2);
+            }
+            .coming-soon-visual {
+              position: relative;
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: 0 10px 30px rgba(0,0,0,.4);
+            }
+            .coming-soon-visual img {
+              width: 100%;
+              height: auto;
+              display: block;
+              border-radius: 12px;
+            }
+            .coming-soon-badge {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              background: var(--home-button-blue);
+              color: var(--home-text-white);
+              padding: 8px 16px;
+              border-radius: 20px;
+              font-weight: 700;
+              font-size: 14px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              box-shadow: 0 4px 12px rgba(0, 201, 255, 0.4);
+              animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+              0%, 100% { opacity: 1; transform: scale(1); }
+              50% { opacity: 0.9; transform: scale(1.05); }
+            }
+          `}</style>
+        </section>
+
+        <section className="container section-spacing">
           <SectionHeading
             overline="Contact"
             title="Let's Connect"
