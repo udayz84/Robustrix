@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useContact } from '../context/ContactContext.jsx';
 import Hero from '../components/Hero.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import Solutions from '../components/Solutions.jsx';
@@ -6,12 +7,23 @@ import News from '../components/News.jsx';
 import MainProducts from '../components/MainProducts.jsx';
 
 export default function Home() {
+  const { openModal } = useContact();
+
   useEffect(() => {
     const timer = requestAnimationFrame(() => {
       document.documentElement.classList.add('app-mounted');
     });
     return () => cancelAnimationFrame(timer);
   }, []);
+
+  useEffect(() => {
+    // Auto-open contact modal after 3.5 seconds (between 3-4 seconds)
+    const autoOpenTimer = setTimeout(() => {
+      openModal();
+    }, 3500);
+
+    return () => clearTimeout(autoOpenTimer);
+  }, [openModal]);
 
   return (
     <>

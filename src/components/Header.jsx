@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContact } from '../context/ContactContext.jsx';
 
 export default function Header() {
+  const { openModal } = useContact();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -35,7 +37,7 @@ export default function Header() {
           </div>
           
           <div className="nav-item">
-            <button className="nav-link">Support</button>
+            <button className="nav-link" onClick={openModal}>Contact Us</button>
           </div>
           <div className="nav-item">
             <Link className="nav-link" to="/about">About</Link>
@@ -62,7 +64,7 @@ export default function Header() {
           <Link to="/products" className="mobile-link">Products</Link>
           <Link to="/solutions" className="mobile-link">AI Platforms</Link>
           
-          <a href="#" className="mobile-link">Support</a>
+          <button className="mobile-link" onClick={openModal}>Contact Us</button>
           <Link to="/about" className="mobile-link">About</Link>
           <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="mobile-link accent">Contact Sales</a>
         </nav>
@@ -208,6 +210,11 @@ export default function Header() {
           text-decoration: none;
           color: var(--color-ink-900);
           border: 1px solid var(--color-ink-200);
+          background: transparent;
+          font: inherit;
+          cursor: pointer;
+          width: 100%;
+          text-align: left;
         }
         .mobile-link:hover { border-color: var(--color-brand-primary-dark); color: var(--color-brand-primary-dark); }
         .mobile-link.accent {

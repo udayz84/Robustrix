@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { ContactProvider, useContact } from './context/ContactContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
+import ContactModal from './components/ContactModal.jsx';
 import Home from './pages/Home.jsx';
 import AISolutions from './pages/AISolutions.jsx';
 import ComputingSystems from './pages/ComputingSystems.jsx';
@@ -22,7 +24,9 @@ import PanelPC from './pages/panel/PanelPC.jsx';
 import Products from './pages/Products.jsx';
 import SolutionShowcase from './pages/SolutionShowcase.jsx';
 
-export default function App() {
+function AppContent() {
+  const { isOpen, closeModal } = useContact();
+
   useEffect(() => {
     // Add a class after initial paint to enable intro transitions
     const timer = requestAnimationFrame(() => {
@@ -56,7 +60,16 @@ export default function App() {
         <Route path="/solutions" element={<SolutionShowcase />} />
       </Routes>
       <Footer />
+      <ContactModal isOpen={isOpen} onClose={closeModal} />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <ContactProvider>
+      <AppContent />
+    </ContactProvider>
   );
 }
 
