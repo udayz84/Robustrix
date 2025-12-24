@@ -52,7 +52,7 @@ export default function NetworkDesktop() {
               </div>
               <div className="ai-card-actions">
                 <a href="#" className="btn btn-primary">Details</a>
-                <a href="#" className="btn btn-outline">Datasheet</a>
+                <a href="https://drive.google.com/file/d/1V2lWp_aqRs0okhO3mNIL0uzBgqL3GxUZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Datasheet</a>
               </div>
             </article>
           ))}

@@ -41,10 +41,10 @@ const SLIDES = [
   },
   {
     id: 's6',
-    title: 'AI Robot',
+    title: 'AI HUMANOID Robot',
     
     ctaSecondary: 'Coming Soon',
-    image: '/pictures/robot.jpeg',
+    image: '/products/airobot.png',
     variant: 'full',
     bgPosition: 'center center'
   }

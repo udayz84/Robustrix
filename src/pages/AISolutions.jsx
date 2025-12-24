@@ -28,12 +28,34 @@ const rawItems = [
   { title: 'AI@Edge Compact Fanless Embedded AI System with NVIDIA® Jetson Orin™ NX', model: 'BOXER-8653AI-PLUS' },
 ];
 
+// Available product images (excluding robodog.jpeg, airobot.png, and robot.jpeg)
+const availableImages = [
+  '/products/21.5 Digital LCD Monitor.png',
+  '/products/aisolutions.png',
+  '/products/computingsystem.png',
+  '/products/embeddedboards.png',
+  '/products/iotsystems.png',
+  '/products/networksolutions.png',
+  '/products/panelpc.png',
+  '/products/ROBO AI INDUSTRIAL PRO.png',
+  '/products/ROBO_AI_30000.png',
+  '/products/upboards.png',
+];
+
+// Function to get a random image from available images
+function getRandomImage(index) {
+  return availableImages[index % availableImages.length];
+}
+
 export default function AISolutions() {
   const items = useMemo(() => {
+    // Shuffle available images for randomness
+    const shuffledImages = [...availableImages].sort(() => Math.random() - 0.5);
+    
     return rawItems.map((it, idx) => ({
       ...it,
       modelView: it.model.replace(/^BOXER/gi, 'ROBO'),
-      image: `https://source.unsplash.com/640x360/?nvidia,jetson,embedded,pc&sig=${idx}`,
+      image: shuffledImages[idx % shuffledImages.length],
     }));
   }, []);
   function onImgError(e) {
@@ -71,7 +93,7 @@ export default function AISolutions() {
               </div>
               <div className="ai-card-actions">
                 <a href="#" className="btn btn-primary">Details</a>
-                <a href="#" className="btn btn-outline">Datasheet</a>
+                <a href="https://drive.google.com/file/d/1V2lWp_aqRs0okhO3mNIL0uzBgqL3GxUZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Datasheet</a>
               </div>
             </article>
           ))}
