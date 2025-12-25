@@ -1,0 +1,315 @@
+/**
+ * IntroAnimation Styles
+ * 
+ * Premium, cinematic styling for ROBUSTRIX intro animation.
+ * Features:
+ * - Fullscreen overlay positioning
+ * - Dark, science-inspired color palette
+ * - GPU-accelerated transforms
+ * - Subtle texture and depth effects
+ */
+
+.introContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+/* Technical grid overlay - robotic aesthetic */
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(2, 196, 249, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 196, 249, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: gridPulse 2s steps(4) infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Scan line effect - robotic scanner */
+.scanLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(2, 196, 249, 0.8),
+    transparent
+  );
+  pointer-events: none;
+  animation: scanLineAnimation 3s linear infinite;
+  box-shadow: 0 0 10px rgba(2, 196, 249, 0.6);
+}
+
+@keyframes scanLineAnimation {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Dark gradient background with sharper movement */
+.gradientBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(2, 44, 54, 0.6) 0%,
+    rgba(3, 31, 39, 0.8) 40%,
+    #000000 100%
+  );
+  pointer-events: none;
+  /* Sharp animated gradient shift */
+  animation: gradientShift 15s steps(8) infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    opacity: 0.85;
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) rotate(0deg);
+  }
+  75% {
+    opacity: 0.85;
+    transform: scale(1.05) rotate(-1deg);
+  }
+}
+
+/* Noise/grain overlay for robotic texture */
+.noiseOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+  /* Sharp, mechanical animation */
+  animation: noiseMove 0.2s steps(4) infinite;
+}
+
+@keyframes noiseMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-50px, -50px);
+  }
+  50% {
+    transform: translate(-100px, -100px);
+  }
+  75% {
+    transform: translate(-50px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Sharp robotic light sweep effect */
+.lightSweep {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(2, 196, 249, 0.15) 48%,
+    rgba(2, 196, 249, 0.25) 50%,
+    rgba(2, 196, 249, 0.15) 52%,
+    transparent 80%
+  );
+  pointer-events: none;
+  animation: lightSweepAnimation 2.5s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes lightSweepAnimation {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Content wrapper */
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  padding: 40px;
+  /* Allow overflow for letters coming from sides */
+  overflow: visible;
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Brand container */
+.brandContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 12vw, 120px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  /* Add overflow to allow letters to come from outside */
+  overflow: visible;
+  position: relative;
+  /* GPU acceleration for transforms */
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* Individual letter styling - reduced glow */
+.letter {
+  display: inline-block;
+  position: relative;
+  /* Subtle text shadow - less glow */
+  text-shadow: 
+    0 0 8px rgba(2, 196, 249, 0.3),
+    0 0 15px rgba(2, 196, 249, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity, x, y;
+  /* Smooth rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tagline styling - minimal effect */
+.tagline {
+  font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 2.5vw, 24px);
+  letter-spacing: 0.15em;
+  color: #15E3FF;
+  text-transform: uppercase;
+  margin-top: 8px;
+  /* Subtle glow */
+  text-shadow: 
+    0 0 8px rgba(21, 227, 255, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform, opacity, letter-spacing, scale;
+  /* Smooth rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contentWrapper {
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .brandContainer {
+    font-size: clamp(36px, 15vw, 80px);
+  }
+  
+  .tagline {
+    font-size: clamp(12px, 3vw, 18px);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .letter,
+  .tagline {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .gradientBackground,
+  .noiseOverlay,
+  .lightSweep,
+  .gridOverlay,
+  .scanLine {
+    animation: none;
+  }
+  
+  .introContainer,
+  .brandContainer,
+  .tagline {
+    will-change: auto;
+  }
+}

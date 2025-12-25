@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import { MAIN_PRODUCTS as products } from '../data/mainProducts.js';
+import useInView from '../hooks/useInView.js';
 
 export default function MainProducts() {
+  const headerRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  const heroRef = useInView({ threshold: 0.1 });
   const fallback = [
     {
       id: 'p1',
@@ -76,13 +80,13 @@ export default function MainProducts() {
 
   return (
     <section className="container section-spacing">
-      <header>
+      <header ref={headerRef} className="fade-in-up">
         <p className="overline mp-overline">Our Main Products</p>
         <h2 className="h2">Featured Industrial Platforms</h2>
         <p className="subtle">Key platforms engineered for demanding edge AI and industrial applications.</p>
       </header>
 
-      <div className="mp-grid">
+      <div ref={gridRef} className="mp-grid fade-in-up-stagger">
         {(products || fallback).map((p) => (
           <article key={p.id} className="card mp-card">
             <span className="mp-badge">Main</span>
@@ -112,7 +116,7 @@ export default function MainProducts() {
         ))}
       </div>
 
-      <div className="mp-hero">
+      <div ref={heroRef} className="mp-hero fade-in-up">
         <img src="/pictures/pc.jpeg" alt="Robustrix industrial PC showcase" loading="lazy" decoding="async" />
         <div className="mp-hero-overlay" />
         <div className="mp-hero-copy">

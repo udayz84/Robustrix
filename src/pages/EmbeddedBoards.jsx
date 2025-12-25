@@ -1,4 +1,9 @@
+import useInView from '../hooks/useInView.js';
+
 export default function EmbeddedBoards() {
+  const heroRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  
   const tiles = [
     { id: 'sbc', title: 'Embedded Single Board Computers', img: '/products/embeddedboards.png' },
     { id: 'com', title: 'Computer-on-Modules', img: '/products/embeddedboards.png' },
@@ -10,7 +15,7 @@ export default function EmbeddedBoards() {
   }
   return (
     <main>
-      <section className="ai-hero">
+      <section ref={heroRef} className="ai-hero fade-in-up">
         <div className="container">
           <h1 className="ai-title">Embedded Boards</h1>
           <p className="ai-sub">
@@ -29,7 +34,7 @@ export default function EmbeddedBoards() {
       </section>
 
       <section className="container section-spacing">
-        <div className="eb-grid">
+        <div ref={gridRef} className="eb-grid fade-in-up-stagger">
           {tiles.map(t => (
             <article className="card eb-card" key={t.id}>
               <div className="eb-thumb">

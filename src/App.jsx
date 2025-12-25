@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ContactProvider, useContact } from './context/ContactContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import ContactModal from './components/ContactModal.jsx';
+import IntroAnimation from './components/IntroAnimation.jsx';
 import Home from './pages/Home.jsx';
 import AISolutions from './pages/AISolutions.jsx';
 import ComputingSystems from './pages/ComputingSystems.jsx';
@@ -26,8 +27,12 @@ import SolutionShowcase from './pages/SolutionShowcase.jsx';
 
 function AppContent() {
   const { isOpen, closeModal } = useContact();
+  const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
+    // Show intro animation on every page load/refresh
+    setShowIntro(true);
+
     // Add a class after initial paint to enable intro transitions
     const timer = requestAnimationFrame(() => {
       document.documentElement.classList.add('app-mounted');
@@ -35,8 +40,13 @@ function AppContent() {
     return () => cancelAnimationFrame(timer);
   }, []);
 
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
   return (
     <>
+      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

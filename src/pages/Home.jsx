@@ -5,9 +5,19 @@ import SectionHeading from '../components/SectionHeading.jsx';
 import Solutions from '../components/Solutions.jsx';
 import News from '../components/News.jsx';
 import MainProducts from '../components/MainProducts.jsx';
+import useInView from '../hooks/useInView.js';
 
 export default function Home() {
   const { openModal } = useContact();
+  
+  // Animation refs
+  const aboutTopRef = useInView({ threshold: 0.1 });
+  const whoRef = useInView({ threshold: 0.1 });
+  const appsRef = useInView({ threshold: 0.1 });
+  const appGridRef = useInView({ threshold: 0.1 });
+  const bharatRef = useInView({ threshold: 0.1 });
+  const comingSoonRef = useInView({ threshold: 0.1 });
+  const contactRef = useInView({ threshold: 0.1 });
 
   useEffect(() => {
     const timer = requestAnimationFrame(() => {
@@ -17,10 +27,16 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Auto-open contact modal after 3.5 seconds (between 3-4 seconds)
+    // Auto-open contact modal after 8 seconds (only once per session)
+    const hasShownContact = sessionStorage.getItem('robustrix-contact-shown');
+    if (hasShownContact) {
+      return; // Already shown, don't show again
+    }
+
     const autoOpenTimer = setTimeout(() => {
       openModal();
-    }, 3500);
+      sessionStorage.setItem('robustrix-contact-shown', 'true');
+    }, 8000);
 
     return () => clearTimeout(autoOpenTimer);
   }, [openModal]);
@@ -41,7 +57,7 @@ export default function Home() {
         <MainProducts />
 
         <section className="container section-spacing">
-          <div className="about-top">
+          <div ref={aboutTopRef} className="about-top fade-in-up">
             <div className="about-copy">
               <p className="stars" aria-label="5 Star Rating">
                 ★★★★★
@@ -74,7 +90,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="who">
+          <div ref={whoRef} className="who fade-in-up">
             <h3 className="h2">Who We Are</h3>
             <p className="subtle">
               We are global pioneers in AI-driven industrial computing. Our Fanless Embedded PCs are transforming industries with machine vision, robotics, and AI automation—setting new standards in high-performance, resilient computing.
@@ -82,9 +98,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="apps">
+          <div ref={appsRef} className="apps fade-in-up">
             <h3 className="h2">Applications of Our AI-Driven Solutions</h3>
-            <div className="app-grid">
+            <div ref={appGridRef} className="app-grid fade-in-up-stagger">
               <article className="card app-card">
                 <h4>AI Vision Systems</h4>
                 <ul>
@@ -128,7 +144,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="bharat">
+          <div ref={bharatRef} className="bharat fade-in-up">
             <h3 className="h2">Our Commitment to Bharat</h3>
             <ul className="why">
               <li><b>Skill India</b> — Training engineers in edge computing, AI, and robotics.</li>
@@ -185,7 +201,7 @@ export default function Home() {
         </section>
 
         <section className="container section-spacing">
-          <div className="coming-soon-section">
+          <div ref={comingSoonRef} className="coming-soon-section fade-in-up">
             <div className="coming-soon-content">
               <p className="overline">Coming Soon</p>
               <h2 className="h2">Robotic AI Dog</h2>
@@ -324,7 +340,7 @@ export default function Home() {
             title="Let's Connect"
             subtitle="+91 9090020245 • info@therobustrix.com • Dwarka Sector-12, New Delhi"
           />
-          <div className="home-contact-grid">
+          <div ref={contactRef} className="home-contact-grid fade-in-up">
             <div className="home-contact-card">
               <p><b>Phone:</b> <a className="link" href="tel:+919090020245">+91 9090020245</a></p>
               <p><b>Email:</b> <a className="link" href="mailto:info@therobustrix.com">info@therobustrix.com</a></p>

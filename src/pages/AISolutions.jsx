@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import useInView from '../hooks/useInView.js';
 
 const rawItems = [
   { title: 'AI@Edge Board with NVIDIA® Jetson T5000™', model: 'BOXER-8741AI' },
@@ -48,6 +49,9 @@ function getRandomImage(index) {
 }
 
 export default function AISolutions() {
+  const heroRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  
   const items = useMemo(() => {
     // Shuffle available images for randomness
     const shuffledImages = [...availableImages].sort(() => Math.random() - 0.5);
@@ -64,7 +68,7 @@ export default function AISolutions() {
 
   return (
     <main>
-      <section className="ai-hero">
+      <section ref={heroRef} className="ai-hero fade-in-up">
         <div className="container">
           <h1 className="ai-title">NVIDIA® AI Solutions</h1>
           <p className="ai-sub">
@@ -74,7 +78,7 @@ export default function AISolutions() {
       </section>
 
       <section className="container section-spacing">
-        <div className="ai-grid">
+        <div ref={gridRef} className="ai-grid fade-in-up-stagger">
           {items.map((it) => (
             <article key={it.model} className="card ai-card">
               <div className="ai-thumb">

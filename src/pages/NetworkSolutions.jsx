@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import useInView from '../hooks/useInView.js';
 
 const intro1 = `As one of the leading manufacture of advanced hardware platform for network computing and security solutions, Robustrix's full range of network appliances empowers SD-WAN, SDN, NFV, Wireless Gateway, NGFW, Intrusion Detection/Prevention, WAN Optimization, Network Access Control, Load Balancing, Web Content Filtering, Unified Threat Management, and Wireless Network Security for the most versatile and cost-effective networking solution on the market.`;
 const intro2 = `Offering x86-based platforms from Intel® Atom™ all the way to Intel® Xeon processors, and in desktop, 1U and 2U form factors, Robustrix's team of experienced network engineers have helped dozens of companies deploy reliable network appliances around the globe with faster time-to-market and lower development costs based on state-of-the-art hardware platforms, unmatched service quality and long-term support.`;
@@ -11,12 +12,15 @@ const tiles = [
 ];
 
 export default function NetworkSolutions() {
+  const heroRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  
   function onImgError(e) {
     e.currentTarget.src = '/products/networksolutions.png';
   }
   return (
     <main>
-      <section className="ai-hero">
+      <section ref={heroRef} className="ai-hero fade-in-up">
         <div className="container">
           <h1 className="ai-title">Network Appliance</h1>
           <p className="ai-sub">{intro1}</p>
@@ -26,7 +30,7 @@ export default function NetworkSolutions() {
       </section>
 
       <section className="container section-spacing">
-        <div className="eb-grid">
+        <div ref={gridRef} className="eb-grid fade-in-up-stagger">
           {tiles.map(t => (
             <Link to={t.to} className="card eb-card" key={t.id}>
               <div className="eb-thumb">

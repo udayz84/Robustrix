@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import useInView from '../hooks/useInView.js';
 
 const intro1 = `Featuring a blend of both efficiency and power-focused processing options such as the Intel® Processor N-Series (formerly Alder Lake-N) and Intel® Core™ Processors (formerly Alder Lake-P) alongside extensive I/O support, Robustrix’s DIN Rail Box PC range is tailored for easy installation and convenient use, with vertical orientation making access to connectors immediate while DIN rail mounted.`;
 const intro2 = `From factory automation to robot controller applications, Robustrix’s DIN Rail Box PCs represent the perfect blend of industrial features, interfaces, and deployment ease, making them an attractive choice for discreet installation in harsh settings.`;
@@ -22,6 +23,9 @@ const rawItems = [
 ];
 
 export default function ComputingSystems() {
+  const heroRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  
   const items = useMemo(() => {
     return rawItems.map((it, idx) => ({
       ...it,
@@ -34,7 +38,7 @@ export default function ComputingSystems() {
   }
   return (
     <main>
-      <section className="ai-hero">
+      <section ref={heroRef} className="ai-hero fade-in-up">
         <div className="container">
           <h1 className="ai-title">Computing Systems — DIN Rail Box PCs</h1>
           <p className="ai-sub">{intro1}</p>
@@ -43,7 +47,7 @@ export default function ComputingSystems() {
       </section>
 
       <section className="container section-spacing">
-        <div className="ai-grid">
+        <div ref={gridRef} className="ai-grid fade-in-up-stagger">
           {items.map((it) => (
             <article key={it.model} className="card ai-card">
               <div className="ai-thumb">

@@ -1,8 +1,23 @@
 import { useState } from 'react';
+import useInView from '../hooks/useInView.js';
 
 export default function About() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  
+  // Animation refs
+  const heroRef = useInView({ threshold: 0.1 });
+  const storyRef = useInView({ threshold: 0.1 });
+  const differentRef = useInView({ threshold: 0.1 });
+  const gridRef = useInView({ threshold: 0.1 });
+  const valuesRef = useInView({ threshold: 0.1 });
+  const impactRef = useInView({ threshold: 0.1 });
+  const impactGridRef = useInView({ threshold: 0.1 });
+  const bharatRef = useInView({ threshold: 0.1 });
+  const ctaRef = useInView({ threshold: 0.1 });
+  const contactFormRef = useInView({ threshold: 0.1 });
+  const findUsRef = useInView({ threshold: 0.1 });
+  const contactGridRef = useInView({ threshold: 0.1 });
   function onChange(e) {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
@@ -20,7 +35,7 @@ export default function About() {
   
   return (
     <main>
-      <section className="ai-hero about-hero">
+      <section ref={heroRef} className="ai-hero about-hero fade-in-up">
         <div className="container">
           <h1 className="ai-title">About Us</h1>
           <h2 className="ai-kicker">Engineering the Future of Industrial AI Computing</h2>
@@ -33,7 +48,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container section-spacing">
+      <section ref={storyRef} className="container section-spacing fade-in-up">
         <h3 className="h2">Our Story</h3>
         <p className="ai-sub">
           Born from the need for high-performance, industrial-grade computing, Robustrix IT Solutions was founded to bridge the gap between AI-driven innovation and industrial reliability. We recognized that traditional computing systems were ill-equipped to handle the rigorous demands of manufacturing, automation, and edge AI applications. So, we set out to engineer something different—technology that’s not just powerful, but also silent, fanless, and built to last.
@@ -44,8 +59,10 @@ export default function About() {
       </section>
 
       <section className="container section-spacing">
-        <h3 className="h2">What Makes Us Different?</h3>
-        <div className="about-grid">
+        <div ref={differentRef} className="fade-in-up">
+          <h3 className="h2">What Makes Us Different?</h3>
+        </div>
+        <div ref={gridRef} className="about-grid fade-in-up-stagger">
           <article className="about-card">
             <h4>AI-Driven Industrial Computing</h4>
             <p>We design and manufacture AI-ready, fanless embedded PCs that power a wide range of industrial applications, including machine vision, smart automation, and autonomous robotics.</p>
@@ -73,7 +90,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container section-spacing">
+      <section ref={valuesRef} className="container section-spacing fade-in-up">
         <h3 className="h2">Our Core Values</h3>
         <ul className="list">
           <li><b>Innovation</b> – We push the boundaries of AI-driven industrial computing.</li>
@@ -84,8 +101,10 @@ export default function About() {
       </section>
 
       <section className="container section-spacing">
-        <h3 className="h2">Where Our Technology is Making an Impact</h3>
-        <div className="impact-grid">
+        <div ref={impactRef} className="fade-in-up">
+          <h3 className="h2">Where Our Technology is Making an Impact</h3>
+        </div>
+        <div ref={impactGridRef} className="impact-grid fade-in-up-stagger">
           <article>
             <h4>AI Vision Systems</h4>
             <ul>
@@ -121,7 +140,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container section-spacing">
+      <section ref={bharatRef} className="container section-spacing fade-in-up">
         <h3 className="h2">Our Commitment to Bharat</h3>
         <ul className="list">
           <li><b>Skill India</b> – Training programs in edge computing and AI automation.</li>
@@ -131,7 +150,7 @@ export default function About() {
         </ul>
       </section>
 
-      <section className="ai-cta">
+      <section ref={ctaRef} className="ai-cta fade-in-up">
         <div className="container">
           <h3 className="h2">Join the Silent, Smart Revolution</h3>
           <p className="ai-sub">We invite you to be a part of this transformation. Whether you are an industrial manufacturer, automation expert, or AI researcher, Robustrix IT Solutions is your trusted partner.</p>
@@ -139,7 +158,9 @@ export default function About() {
       </section>
 
       <section className="container section-spacing">
-        <h3 className="h2">Contact Us</h3>
+        <div ref={contactFormRef} className="fade-in-up">
+          <h3 className="h2">Contact Us</h3>
+        </div>
         <form className="contact" onSubmit={onSubmit}>
           <div className="row">
             <label>Name</label>
@@ -163,8 +184,10 @@ export default function About() {
       </section>
 
       <section className="container section-spacing">
-        <h3 className="h2">Find Us</h3>
-        <div className="contact-grid">
+        <div ref={findUsRef} className="fade-in-up">
+          <h3 className="h2">Find Us</h3>
+        </div>
+        <div ref={contactGridRef} className="contact-grid fade-in-up">
           <div className="contact-card">
             <p><b>Phone:</b> <a className="link" href="tel:+919090020245">+91 9090020245</a></p>
             <p><b>Email:</b> <a className="link" href="mailto:info@therobustrix.com">info@therobustrix.com</a></p>
