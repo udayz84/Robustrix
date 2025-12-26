@@ -35,7 +35,9 @@ export default function Header() {
           <div className="nav-item">
             <Link className="nav-link" to="/solutions">AI Platforms</Link>
           </div>
-          
+          <div className="nav-item">
+            <Link className="nav-link" to="/windows-11-analysis">Windows 11 Analysis</Link>
+          </div>
           <div className="nav-item">
             <button className="nav-link" onClick={openModal}>Contact Us</button>
           </div>
@@ -63,7 +65,7 @@ export default function Header() {
           <Link to="/" className="mobile-link">Home</Link>
           <Link to="/products" className="mobile-link">Products</Link>
           <Link to="/solutions" className="mobile-link">AI Platforms</Link>
-          
+          <Link to="/windows-11-analysis" className="mobile-link">Windows 11 Analysis</Link>
           <button className="mobile-link" onClick={openModal}>Contact Us</button>
           <Link to="/about" className="mobile-link">About</Link>
           <a href="https://wa.me/919090020245" target="_blank" rel="noopener noreferrer" className="mobile-link accent">Contact Sales</a>

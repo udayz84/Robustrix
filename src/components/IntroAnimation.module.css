@@ -213,43 +213,50 @@
   will-change: transform, opacity;
 }
 
-/* Brand container */
+/* Brand container - modern luxury serif logotype */
 .brandContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
   gap: 0;
-  font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
   font-weight: 900;
   font-size: clamp(48px, 12vw, 120px);
-  line-height: 1;
-  letter-spacing: 0.02em;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
   text-transform: uppercase;
+  font-style: normal;
   /* Add overflow to allow letters to come from outside */
   overflow: visible;
   position: relative;
   /* GPU acceleration for transforms */
   transform: translateZ(0);
   will-change: transform, opacity;
+  /* Luxury serif styling */
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
 }
 
-/* Individual letter styling - reduced glow */
+/* Individual letter styling - luxury serif with reduced glow */
 .letter {
   display: inline-block;
   position: relative;
-  /* Subtle text shadow - less glow */
+  /* Subtle text shadow - less glow, elegant for serif */
   text-shadow: 
-    0 0 8px rgba(2, 196, 249, 0.3),
-    0 0 15px rgba(2, 196, 249, 0.15),
-    0 2px 4px rgba(0, 0, 0, 0.6);
+    0 0 10px rgba(2, 196, 249, 0.25),
+    0 0 20px rgba(2, 196, 249, 0.1),
+    0 2px 6px rgba(0, 0, 0, 0.7);
   /* GPU acceleration */
   transform: translateZ(0);
   will-change: transform, opacity, x, y;
-  /* Smooth rendering */
+  /* Smooth rendering for serif fonts */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Serif-specific styling */
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* Tagline styling - minimal effect */

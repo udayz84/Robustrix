@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ContactProvider, useContact } from './context/ContactContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
@@ -24,10 +24,15 @@ import IotGateways from './pages/iot/IotGateways.jsx';
 import PanelPC from './pages/panel/PanelPC.jsx';
 import Products from './pages/Products.jsx';
 import SolutionShowcase from './pages/SolutionShowcase.jsx';
+import Windows11Analysis from './pages/Windows11Analysis.jsx';
 
 function AppContent() {
   const { isOpen, closeModal } = useContact();
   const [showIntro, setShowIntro] = useState(false);
+  const location = useLocation();
+  
+  // Hide footer on solutions page, show only on homepage
+  const showFooter = location.pathname === '/';
 
   useEffect(() => {
     // Show intro animation on every page load/refresh
@@ -68,8 +73,9 @@ function AppContent() {
         <Route path="/panel-pcs" element={<PanelPC />} />
         <Route path="/products" element={<Products />} />
         <Route path="/solutions" element={<SolutionShowcase />} />
+        <Route path="/windows-11-analysis" element={<Windows11Analysis />} />
       </Routes>
-      <Footer />
+      {showFooter && <Footer />}
       <ContactModal isOpen={isOpen} onClose={closeModal} />
     </>
   );

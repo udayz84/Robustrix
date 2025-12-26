@@ -60,7 +60,7 @@ export default function About() {
 
       <section className="container section-spacing">
         <div ref={differentRef} className="fade-in-up">
-          <h3 className="h2">What Makes Us Different?</h3>
+        <h3 className="h2">What Makes Us Different?</h3>
         </div>
         <div ref={gridRef} className="about-grid fade-in-up-stagger">
           <article className="about-card">
@@ -102,7 +102,7 @@ export default function About() {
 
       <section className="container section-spacing">
         <div ref={impactRef} className="fade-in-up">
-          <h3 className="h2">Where Our Technology is Making an Impact</h3>
+        <h3 className="h2">Where Our Technology is Making an Impact</h3>
         </div>
         <div ref={impactGridRef} className="impact-grid fade-in-up-stagger">
           <article>
@@ -159,7 +159,7 @@ export default function About() {
 
       <section className="container section-spacing">
         <div ref={contactFormRef} className="fade-in-up">
-          <h3 className="h2">Contact Us</h3>
+        <h3 className="h2">Contact Us</h3>
         </div>
         <form className="contact" onSubmit={onSubmit}>
           <div className="row">
@@ -185,7 +185,7 @@ export default function About() {
 
       <section className="container section-spacing">
         <div ref={findUsRef} className="fade-in-up">
-          <h3 className="h2">Find Us</h3>
+        <h3 className="h2">Find Us</h3>
         </div>
         <div ref={contactGridRef} className="contact-grid fade-in-up">
           <div className="contact-card">
