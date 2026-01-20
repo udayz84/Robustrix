@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading.jsx';
 import Solutions from '../components/Solutions.jsx';
 import News from '../components/News.jsx';
 import MainProducts from '../components/MainProducts.jsx';
+import TypewriterWords from '../components/TypewriterWords.jsx';
 import useInView from '../hooks/useInView.js';
 
 export default function Home() {
@@ -45,6 +46,81 @@ export default function Home() {
     <>
       <main className="home-theme">
         <Hero />
+
+        <section className="container section-spacing section-solutions">
+          <div className="home-intro">
+            <p className="overline home-intro-brand">Robustrix IT Solutions</p>
+            <p className="subtle home-intro-typed">
+              <TypewriterWords
+                words={['AI-driven edge computing', 'fanless industrial PCs', 'robotics & automation', 'machine vision', 'harsh Indian environments']}
+                typingSpeedMs={62}
+                deletingSpeedMs={36}
+                holdMs={900}
+              />
+            </p>
+            <h2 className="h2 home-intro-heading">Leading the Future of Industrial Innovation in India</h2>
+            <p className="subtle home-intro-body">
+              Welcome to Robustrix IT Solutions, where cutting-edge technology meets industrial resilience. We are not just building machines—we are engineering the future of AI-driven industrial computing. Our expertise lies in fanless AI industrial embedded PCs designed to operate seamlessly in India’s toughest environments, ensuring unmatched reliability, silence, and high-performance computing.
+            </p>
+          </div>
+          <style>{`
+            .home-intro {
+              position: relative;
+              z-index: 5;
+              margin-top: clamp(18px, 3vw, 42px);
+              background: linear-gradient(135deg, rgba(2, 196, 249, 0.10), rgba(138, 63, 252, 0.08));
+              border: 1px solid rgba(255,255,255,0.08);
+              border-radius: 16px;
+              padding: clamp(18px, 3vw, 28px);
+              box-shadow: 0 18px 46px rgba(0,0,0,0.35);
+              animation: homeIntroIn 520ms var(--transition-slow) both;
+              color: #fff;
+            }
+            @keyframes homeIntroIn {
+              from { opacity: 0; transform: translateY(18px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .home-intro-brand {
+              color: #fff;
+              font-size: clamp(20px, 2.6vw, 26px);
+              letter-spacing: .10em;
+              text-transform: uppercase;
+              margin-bottom: 6px;
+            }
+            .home-intro-typed {
+              margin-top: 6px;
+              font-size: clamp(16px, 2.2vw, 20px);
+              font-weight: 800;
+              color: rgba(255,255,255,0.92);
+            }
+            .home-intro-heading {
+              margin-top: 10px;
+              font-size: clamp(32px, 4.4vw, 46px);
+              color: #fff;
+            }
+            .home-intro-body {
+              margin-top: 12px;
+              font-size: clamp(16px, 2.2vw, 19px);
+              color: rgba(255,255,255,0.88);
+            }
+            .home-intro .tw-caret {
+              display: inline-block;
+              width: 10px;
+              height: 1.1em;
+              margin-left: 6px;
+              transform: translateY(2px);
+              background: currentColor;
+              opacity: 0.85;
+              animation: twBlink 1s steps(2, end) infinite;
+              border-radius: 2px;
+            }
+            @keyframes twBlink {
+              0%, 45% { opacity: 0.95; }
+              46%, 100% { opacity: 0; }
+            }
+          `}</style>
+        </section>
+
         <section className="container section-spacing section-solutions">
           <SectionHeading
             overline="Solutions"
@@ -392,20 +468,44 @@ export default function Home() {
           .home-theme .link { color: var(--home-highlight-cyan); }
 
           /* Buttons */
-          .home-theme .btn-primary {
-            background: var(--home-button-blue);
-            border-color: transparent;
-            color: var(--home-text-white);
+          .home-theme .btn {
+            --btn-glow: rgba(0, 201, 255, 0.45);
+            --btn-glow-strong: rgba(21, 227, 255, 0.72);
           }
-          .home-theme .btn-primary:hover { background: var(--home-button-blue-hover); }
+          .home-theme .btn-primary {
+            background: linear-gradient(120deg, var(--home-button-blue) 0%, var(--home-accent-blue) 50%, var(--home-button-blue-hover) 100%);
+            background-size: 220% 220%;
+            border-color: rgba(0, 201, 255, 0.55);
+            color: var(--home-text-white);
+            box-shadow:
+              0 12px 32px rgba(0, 0, 0, 0.35),
+              0 0 0 1px rgba(0, 201, 255, 0.28),
+              0 16px 44px rgba(0, 201, 255, 0.55);
+          }
+          .home-theme .btn-primary:hover {
+            background-position: 100% 0;
+            box-shadow:
+              0 14px 36px rgba(0, 0, 0, 0.38),
+              0 0 0 1px rgba(0, 201, 255, 0.4),
+              0 18px 52px rgba(0, 201, 255, 0.65);
+          }
           .home-theme .btn-outline {
-            background: transparent;
-            border-color: var(--home-accent-blue);
+            background: rgba(0, 201, 255, 0.08);
+            border-color: rgba(21, 227, 255, 0.45);
             color: var(--home-accent-blue);
+            box-shadow:
+              0 10px 28px rgba(0, 0, 0, 0.28),
+              0 0 0 1px rgba(21, 227, 255, 0.22),
+              0 14px 40px rgba(0, 201, 255, 0.4);
           }
           .home-theme .btn-outline:hover {
-            border-color: var(--home-highlight-cyan);
+            border-color: rgba(41, 213, 255, 0.75);
             color: var(--home-highlight-cyan);
+            background: rgba(0, 201, 255, 0.15);
+            box-shadow:
+              0 12px 32px rgba(0, 0, 0, 0.32),
+              0 0 0 1px rgba(41, 213, 255, 0.35),
+              0 16px 46px rgba(0, 201, 255, 0.48);
           }
 
           /* Cards and surfaces */

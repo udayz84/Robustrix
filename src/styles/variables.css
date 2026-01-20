@@ -5,6 +5,9 @@
   --color-brand-accent: #15E3FF;       /* accent blue */
   --color-highlight-cyan: #29D5FF;     /* highlight */
   --color-contact-purple: #8A3FFC;
+  --color-glow-strong: rgba(21, 227, 255, 0.65);  /* primary glow */
+  --color-glow-soft: rgba(2, 196, 249, 0.45);     /* softer glow */
+  --color-glow-outline: rgba(2, 196, 249, 0.32);  /* outline glow */
 
   /* Ink (text) colors tuned for dark background */
   --color-ink-900: #FFFFFF;            /* primary text */

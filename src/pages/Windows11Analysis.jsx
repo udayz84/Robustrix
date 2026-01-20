@@ -675,13 +675,33 @@ export default function Windows11Analysis() {
           justify-content: center;
           flex-wrap: wrap;
         }
+        .win11-cta-section .btn {
+          --btn-glow: rgba(255, 255, 255, 0.38);
+          --btn-glow-strong: rgba(255, 255, 255, 0.65);
+        }
+        .win11-cta-section .btn-primary {
+          border-color: rgba(255,255,255,0.35);
+          box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.22),
+            0 16px 44px rgba(255, 255, 255, 0.45);
+        }
         .win11-cta-section .btn-outline {
-          border-color: rgba(255,255,255,0.5);
+          border-color: rgba(255,255,255,0.45);
           color: #ffffff;
+          background: rgba(255,255,255,0.06);
+          box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.32),
+            0 0 0 1px rgba(255, 255, 255, 0.22),
+            0 16px 42px rgba(255, 255, 255, 0.35);
         }
         .win11-cta-section .btn-outline:hover {
           border-color: #ffffff;
-          background: rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.14);
+          box-shadow:
+            0 14px 36px rgba(0, 0, 0, 0.34),
+            0 0 0 1px rgba(255, 255, 255, 0.32),
+            0 18px 48px rgba(255, 255, 255, 0.45);
         }
 
         @media (max-width: 1023px) {
