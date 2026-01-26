@@ -46,7 +46,7 @@ const SLIDES = [
     ctaSecondary: 'Coming Soon',
     image: '/products/airobot.png',
     variant: 'full',
-    bgPosition: 'center center'
+    bgPosition: 'center top'
   }
 ];
 
@@ -227,9 +227,12 @@ export default function Hero() {
           background-position: center center;
           transform: none;
         }
-        .slide[data-slide-id="s5"] .bg-full,
-        .slide[data-slide-id="s6"] .bg-full {
+        .slide[data-slide-id="s5"] .bg-full {
           background-position: center center;
+          background-size: cover;
+        }
+        .slide[data-slide-id="s6"] .bg-full {
+          background-position: center top;
           background-size: cover;
         }
         .slide[aria-hidden="false"].full-bleed .bg-full { transform: none; }
