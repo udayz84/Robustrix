@@ -105,16 +105,17 @@ export default function Windows11Analysis() {
       </section>
 
       {/* How Windows 11 Uses Modern Hardware Better */}
-      <section className="container section-spacing win11-hardware-section">
-        <div ref={hardwareRef} className="fade-in-up">
-          <SectionHeading
-            overline="Hardware Optimization"
-            title="How Windows 11 Leverages Modern Hardware"
-            subtitle="Windows 11 is specifically designed to unlock the full potential of today's advanced hardware components, delivering superior performance and efficiency."
-          />
-        </div>
+      <section className="win11-hardware-section">
+        <div className="container section-spacing">
+          <div ref={hardwareRef} className="fade-in-up">
+            <SectionHeading
+              overline="Hardware Optimization"
+              title="How Windows 11 Leverages Modern Hardware"
+              subtitle="Windows 11 is specifically designed to unlock the full potential of today's advanced hardware components, delivering superior performance and efficiency."
+            />
+          </div>
 
-        <div ref={hardwareGridRef} className="win11-hardware-grid fade-in-up-stagger">
+          <div ref={hardwareGridRef} className="win11-hardware-grid fade-in-up-stagger">
           <div className="hardware-item">
             <div className="hardware-header">
               <h3>Multi-Core Processors</h3>
@@ -214,6 +215,7 @@ export default function Windows11Analysis() {
               <li>Improved peripheral device management</li>
             </ul>
           </div>
+        </div>
         </div>
       </section>
 
@@ -491,8 +493,6 @@ export default function Windows11Analysis() {
         /* Hardware Section */
         .win11-hardware-section {
           background: var(--color-bg-alt);
-          margin: 0;
-          padding-inline: var(--container-pad);
         }
         .win11-hardware-section .container {
           background: transparent;
@@ -513,12 +513,15 @@ export default function Windows11Analysis() {
           padding: 32px;
           border-radius: var(--radius-md);
           box-shadow: var(--shadow-sm);
+          text-align: center;
         }
         .hardware-header {
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
+          gap: 12px;
           margin-bottom: 16px;
+          flex-wrap: wrap;
         }
         .hardware-header h3 {
           font-size: 1.5rem;
@@ -545,6 +548,9 @@ export default function Windows11Analysis() {
           padding: 0;
           display: grid;
           gap: 8px;
+          text-align: left;
+          max-width: fit-content;
+          margin: 0 auto;
         }
         .hardware-item ul li {
           color: var(--color-ink-700);

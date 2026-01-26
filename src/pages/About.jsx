@@ -48,7 +48,7 @@ export default function About() {
         </div>
       </section>
 
-      <section ref={storyRef} className="container section-spacing fade-in-up">
+      <section ref={storyRef} className="container section-spacing fade-in-up story-section">
         <h3 className="h2">Our Story</h3>
         <p className="ai-sub">
           Born from the need for high-performance, industrial-grade computing, Robustrix IT Solutions was founded to bridge the gap between AI-driven innovation and industrial reliability. We recognized that traditional computing systems were ill-equipped to handle the rigorous demands of manufacturing, automation, and edge AI applications. So, we set out to engineer something different—technology that’s not just powerful, but also silent, fanless, and built to last.
@@ -222,6 +222,10 @@ export default function About() {
         .ai-sub { margin-top: 10px; color: var(--color-ink-600, #3d4656); max-width: 920px; }
         /* Ensure the About hero text stays white, overriding later generic rules */
         .about-hero .ai-title, .about-hero .ai-kicker, .about-hero .ai-sub { color: #fff !important; }
+        /* Story section white text */
+        .story-section { color: #fff; }
+        .story-section .h2 { color: #fff; }
+        .story-section .ai-sub { color: #fff !important; }
         .about-grid {
           display: grid; gap: 16px;
           grid-template-columns: repeat(2, 1fr);
@@ -239,11 +243,26 @@ export default function About() {
         .ai-cta { background: linear-gradient(90deg, var(--color-bg-alt), var(--color-bg)); border-top: 1px solid var(--color-ink-200); border-bottom: 1px solid var(--color-ink-200); padding-block: 24px; }
         .contact { display: grid; gap: 12px; max-width: 640px; }
         .row { display: grid; gap: 6px; }
-        input, textarea {
-          border: 1px solid var(--color-ink-200); border-radius: 10px; padding: 10px;
-          outline: none; transition: border-color var(--transition), box-shadow var(--transition);
+        .row label {
+          color: var(--color-ink-900);
+          font-weight: 600;
         }
-        input:focus, textarea:focus { border-color: var(--color-brand-primary); box-shadow: 0 0 0 3px rgba(30, 74, 168, .12); }
+        input, textarea {
+          background: var(--color-bg-alt);
+          color: var(--color-ink-900);
+          border: 1px solid var(--color-ink-200); 
+          border-radius: 10px; 
+          padding: 10px;
+          outline: none; 
+          transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        input::placeholder, textarea::placeholder {
+          color: var(--color-ink-500);
+        }
+        input:focus, textarea:focus { 
+          border-color: var(--color-brand-primary); 
+          box-shadow: 0 0 0 3px rgba(2, 196, 249, 0.2); 
+        }
         .ok { color: var(--color-brand-primary); margin-top: 8px; font-weight: 700; }
         .contact-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
         @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.6fr; } }
